@@ -1,0 +1,11 @@
+.greetings {
+  position: relative;
+  max-width: 40rem;
+  /* margin: 0 5rem; */
+  top: 3rem;
+}
+.landing-page {
+  display: flex;
+  margin: 0 15rem;
+  flex-direction: row;
+}

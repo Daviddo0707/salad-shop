@@ -1,0 +1,14 @@
+.quantity-btns {
+  cursor: pointer;
+  /* text-align: center; */
+}
+.btn-left {
+  display: inline;
+}
+.btn-right {
+  display: inline;
+}
+.quantity {
+  display: inline;
+  width: 14em !important;
+}

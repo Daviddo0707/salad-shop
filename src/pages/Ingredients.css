@@ -1,0 +1,11 @@
+.ingredients-table {
+  margin: 1rem 15rem;
+}
+.total-price-and-chekout-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.checkout-btn {
+  margin-right: 2rem;
+}
