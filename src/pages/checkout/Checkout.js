@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import CheckoutModal from "../../components/CheckoutModal";
 import Loader from "../../components/Loader";
-import { getTotalPrice, validateEmail } from "../../helpers";
+import { getTotalPrice, validateEmail } from "../../utils/helpers";
 import { CheckoutContainer, FromAndBtnContainer } from "./CheckoutStyles";
 
 const Checkout = ({ ingredients }) => {

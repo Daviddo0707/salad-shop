@@ -1,11 +1,11 @@
 .contact-datail {
-  margin-bottom: 0.5rem;
-  max-width: 40rem;
+  margin-bottom: 8px;
+  max-width: 640px;
   word-wrap: break-word;
 }
 .order-detail-line {
-  margin-right: "1rem";
+  margin-right: 16px;
   display: inline;
-  margin-bottom: 1.2rem;
+  margin-bottom: 18px;
   border-bottom: 1px grey;
 }

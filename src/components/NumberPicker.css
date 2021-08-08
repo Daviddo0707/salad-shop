@@ -1,8 +1,9 @@
-.quantity-btns {
+.btns {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.quantity-and-btns {
+
+.quantity-btns {
   display: flex;
   flex-direction: row;
 }

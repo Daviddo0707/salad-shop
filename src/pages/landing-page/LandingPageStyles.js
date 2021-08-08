@@ -3,20 +3,20 @@ import styled from "styled-components/macro";
 export const LandingPageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0 1.5rem;
+  margin: 0 24px;
   justify-content: center;
 
   @media (max-width: 767px) {
-    margin: 0 1rem;
+    margin: 0 16px;
   }
 `;
 
 export const ParagraphContent = styled.p`
-  max-width: 30rem;
+  max-width: 480px;
 `;
 
 export const GreetingsContent = styled.div`
   position: relative;
-  max-width: 40rem;
-  top: 3rem;
+  max-width: 640px;
+  top: 48px;
 `;

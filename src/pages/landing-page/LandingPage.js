@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import useScreenSize from "use-screen-size";
-import salad from "../../images/salad.jpg";
 import { Button, Header } from "semantic-ui-react";
 import {
   LandingPageContainer,
   ParagraphContent,
   GreetingsContent,
 } from "./LandingPageStyles";
+import salad from "../../images/salad.jpg";
 
 const LandingPage = () => {
   const history = useHistory();
   const { width } = useScreenSize();
   const miniWidh = 767;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <LandingPageContainer>
       <GreetingsContent>
@@ -36,7 +39,7 @@ const LandingPage = () => {
         </Button>
       </GreetingsContent>
       {width > miniWidh && (
-        <div style={{ marginLeft: "3rem" }}>
+        <div style={{ marginLeft: "48px" }}>
           <img src={salad} alt="Salad" height={500} width={450}></img>
         </div>
       )}

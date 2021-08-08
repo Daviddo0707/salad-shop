@@ -8,7 +8,7 @@ import {
   incrementIngredient,
   decrementIngredient,
 } from "../../actions/ingredientsActions";
-import { getTotalPrice } from "../../helpers";
+import { getTotalPrice } from "../../utils/helpers";
 import Loader from "../../components/Loader";
 import NumberPicker from "../../components/NumberPicker";
 import {
@@ -57,8 +57,8 @@ const Ingredients = ({
                   <Table.Cell width={tableCellWidth}>{price}</Table.Cell>
                   <Table.Cell width={tableCellWidth}>
                     <NumberPicker
-                      onIncrease={() => incrementIngredient(index)}
-                      onDecrease={() => decrementIngredient(index)}
+                      increase={() => incrementIngredient(index)}
+                      decrease={() => decrementIngredient(index)}
                       quantity={quantity}
                     />
                   </Table.Cell>

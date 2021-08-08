@@ -2,15 +2,16 @@ import styled from "styled-components/macro";
 
 export const CheckoutContainer = styled.div`
   align-items: center;
-  margin: 1rem 10%;
-  min-width: 20rem;
-  max-width: 60rem;
+  margin: 16px 70px;
+  min-width: 320px;
+  max-width: 960px;
 
   @media (max-width: 767px) {
-    margin: 0 1.5rem;
-    min-width: 20rem;
+    margin: 0 8px;
+    min-width: 240px;
   }
 `;
 export const FromAndBtnContainer = styled.div`
-  padding-bottom: 10%;
+  display: flex;
+  padding-bottom: 30px;
 `;
