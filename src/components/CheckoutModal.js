@@ -1,15 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Modal, Button, Header, Divider } from "semantic-ui-react";
-import history from "../history";
 import "./CheckoutModal.css";
 
 const CheckoutModal = ({
   handleClose,
   show,
-  customerDetails,
+  custName,
+  custEmail,
+  custDescription,
   ingredientsInCart,
   totalPrice,
 }) => {
+  const history = useHistory();
   const handleCloseModal = () => {
     handleClose();
     history.push("/");
@@ -29,11 +32,13 @@ const CheckoutModal = ({
         </Modal.Header>
         <Modal.Content>
           <Header as="h3">Order Details:</Header>
+
           {ingredientsInCart.map(({ name, quantity }, index) => {
             return (
               <div key={index}>
-                <span style={{ marginRight: "1rem" }}>{name}</span>
-                <span>x{quantity}</span>
+                <div className="order-detail-line">
+                  {quantity} {name}
+                </div>
               </div>
             );
           })}
@@ -41,11 +46,11 @@ const CheckoutModal = ({
 
           <Divider />
           <Header as="h3">Contact Information:</Header>
-          <div className="contact-datail"> Name: {customerDetails.name}</div>
-          <div className="contact-datail"> Email: {customerDetails.email}</div>
-          {customerDetails.description && (
+          <div className="contact-datail"> Name: {custName}</div>
+          <div className="contact-datail"> Email: {custEmail}</div>
+          {custDescription && (
             <div className="contact-datail">
-              Additional Notes: {customerDetails.description}
+              Additional Notes: {custDescription}
             </div>
           )}
         </Modal.Content>

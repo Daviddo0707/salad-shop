@@ -1,25 +1,28 @@
 import React from "react";
-import "./NumberPicker.css";
 import { Icon } from "semantic-ui-react";
+import "./NumberPicker.css";
 
 const NumberPicker = ({ quantity, onIncrease, onDecrease }) => {
+  const maxCountPerUnit = 9;
   return (
-    <div>
-      <div className="quantity-btns btn-right">
+    <div className="quantity-and-btns">
+      <div className="quantity-btns">
         <Icon
-          color={quantity === 0 ? "grey" : "orange"}
+          color={quantity === 0 ? "grey" : "yellow"}
           name="minus circle"
           size="large"
           onClick={() => onDecrease()}
         />
       </div>
-      <div className="quantity"> {quantity} </div>
-      <div className="quantity-btns btn-left">
+
+      {quantity}
+
+      <div className="quantity-btns ">
         <Icon
-          color="green"
+          color={quantity < maxCountPerUnit ? "green" : "grey"}
           name="plus circle"
           size="large"
-          onClick={() => onIncrease()}
+          onClick={() => (quantity < maxCountPerUnit ? onIncrease() : null)}
         />
       </div>
     </div>

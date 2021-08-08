@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import useScreenSize from "use-screen-size";
+import { Table, Button } from "semantic-ui-react";
 import {
   getIngredients,
   incrementIngredient,
   decrementIngredient,
-} from "../actions/ingredientsActions";
-import "./Ingredients.css";
-import history from "../history";
-import Loader from "../components/Loader";
-import NumberPicker from "../components/NumberPicker";
-import { Table, Button } from "semantic-ui-react";
+} from "../../actions/ingredientsActions";
+import { getTotalPrice } from "../../helpers";
+import Loader from "../../components/Loader";
+import NumberPicker from "../../components/NumberPicker";
+import {
+  IngredientsTable,
+  TotalPriceAndCheckoutBtn,
+} from "./IngredientsStyles";
 
 const Ingredients = ({
   getIngredients,
@@ -17,27 +22,30 @@ const Ingredients = ({
   incrementIngredient,
   decrementIngredient,
 }) => {
+  const history = useHistory();
+  const { width } = useScreenSize();
+  const tableCellWidth = 7;
+
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     getIngredients();
   }, [getIngredients]);
 
-  //helper function to calcuate the current total price
-  const getTotalPrice = () => {
-    return ingredients.reduce(function (prev, cur) {
-      return parseFloat((prev + cur.price * cur.quantity).toFixed(2));
-    }, 0);
-  };
   if (ingredients.length === 0) {
     return <Loader />;
   } else {
     return (
-      <div className="ingredients-table">
-        <Table>
+      <IngredientsTable width={width}>
+        <Table unstackable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell width={7}>Name</Table.HeaderCell>
-              <Table.HeaderCell width={7}>Price ($)</Table.HeaderCell>
-              <Table.HeaderCell width={7}>Quantity</Table.HeaderCell>
+              <Table.HeaderCell width={tableCellWidth}>Name</Table.HeaderCell>
+              <Table.HeaderCell width={tableCellWidth}>
+                Price ($)
+              </Table.HeaderCell>
+              <Table.HeaderCell width={tableCellWidth}>
+                Quantity
+              </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -45,9 +53,9 @@ const Ingredients = ({
             {ingredients.map(({ name, price, quantity }, index) => {
               return (
                 <Table.Row key={index}>
-                  <Table.Cell width={7}>{name}</Table.Cell>
-                  <Table.Cell width={7}>{price}</Table.Cell>
-                  <Table.Cell width={7}>
+                  <Table.Cell width={tableCellWidth}>{name}</Table.Cell>
+                  <Table.Cell width={tableCellWidth}>{price}</Table.Cell>
+                  <Table.Cell width={tableCellWidth}>
                     <NumberPicker
                       onIncrease={() => incrementIngredient(index)}
                       onDecrease={() => decrementIngredient(index)}
@@ -59,18 +67,17 @@ const Ingredients = ({
             })}
           </Table.Body>
         </Table>
-        <div className="total-price-and-chekout-btn">
-          <h3>Total Price : {getTotalPrice()} $</h3>
+        <TotalPriceAndCheckoutBtn>
+          <h3>Total Price : {getTotalPrice(ingredients)} $</h3>
           <Button
             color="green"
-            className="checkout-btn"
-            disabled={getTotalPrice() === 0}
+            disabled={getTotalPrice(ingredients) === 0}
             onClick={() => history.push("/checkout")}
           >
             Checkout
           </Button>
-        </div>
-      </div>
+        </TotalPriceAndCheckoutBtn>
+      </IngredientsTable>
     );
   }
 };

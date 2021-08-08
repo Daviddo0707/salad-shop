@@ -1,8 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
-import history from "../history";
 
 const Header = () => {
+  const history = useHistory();
   return (
     <Menu size="massive">
       <Menu.Item

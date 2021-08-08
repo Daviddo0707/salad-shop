@@ -3,3 +3,9 @@
   max-width: 40rem;
   word-wrap: break-word;
 }
+.order-detail-line {
+  margin-right: "1rem";
+  display: inline;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px grey;
+}

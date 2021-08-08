@@ -1,5 +1,5 @@
 import axios from "axios";
-let API = axios.create({
+
+export default axios.create({
   baseURL: "/",
 });
-export default API;

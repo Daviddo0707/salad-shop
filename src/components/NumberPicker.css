@@ -1,14 +1,8 @@
 .quantity-btns {
   cursor: pointer;
-  /* text-align: center; */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.btn-left {
-  display: inline;
-}
-.btn-right {
-  display: inline;
-}
-.quantity {
-  display: inline;
-  width: 14em !important;
+.quantity-and-btns {
+  display: flex;
+  flex-direction: row;
 }
