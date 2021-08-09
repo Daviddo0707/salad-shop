@@ -14,8 +14,7 @@ const NumberPicker = ({ quantity, increase, decrease }) => {
           onClick={() => decrease()}
         />
       </div>
-
-      {quantity}
+      <div style={{ width: "12px" }}>{quantity}</div>
 
       <div className="btns ">
         <Icon
